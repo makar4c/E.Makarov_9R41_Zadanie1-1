@@ -1,24 +1,25 @@
+temperature = float(input("Какая температура на улице? "))
 
-# данные от юзера
-temp = int(input("Введите температуру: "))
-is_rainy = input("Идет дождь? (да/нет): ").lower() == 'да'
-is_raining_heavily = False
-if is_rainy:
-        is_raining_heavily = input("идет ливень? (да/нет): ").lower() == 'да'
- # выбора одежды
-if temp < 0:
-        print("Надень пуховик, шапку и шарф.")
-elif temp < 10:
-        print("Надень теплую куртку.")
-elif temp < 15:
-        print("Надень ветровку.")
-elif temp < 20:
-        print("Надень свитшот или худи.")
+if temperature <= 0:
+    print("Пуховик")
+
+elif 20 < temperature < 30:
+    is_rainy_input = input("Идет дождь? (да/нет): ")
+    is_rainy = (is_rainy_input.lower() == "да")
+    if is_rainy:
+        print("Футболка, шорты и дождевик")
+    else:
+        print("Футболка и шорты")
+
 else:
-        print("Можно надеть футболку.")
-
-    # Допы для дождя
-if is_raining_heavily:
-            print("Возьми зонт и надень галоши.")
-elif is_rainy:
-            print("Возьми зонт.")
+    is_rainy_input = input("Идет дождь? (да/нет): ")
+    is_rainy = (is_rainy_input.lower() == "да")
+    if is_rainy:
+        is_raining_heavily_input = input("Дождь сильный? (да/нет): ")
+        is_raining_heavily = (is_raining_heavily_input.lower() == "да")
+        if is_raining_heavily:
+            print("Пальто, резиновые сапоги и зонт")
+        else:
+            print("Пальто и дождевик")
+    else:
+        print("Пальто")
